@@ -27,7 +27,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ${{ env.REGISTRY_NAME }}/${{ env.APP_NAME }}:${{ env.VERSION }} .
+        docker build -f my-app/Dockerfile -t ${{ env.REGISTRY_NAME }}/${{ env.APP_NAME }}:${{ env.VERSION }} my-app
         docker tag ${{ env.REGISTRY_NAME }}/${{ env.APP_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY_NAME }}/${{ env.APP_NAME }}:latest
 
     - name: Push Docker image
